@@ -1,8 +1,8 @@
-
-use leetcode::leetcode::array::T697::Solution;
+use std::cell::RefCell;
+use std::rc::Rc;
+use leetcode::leetcode::array::T303::NumArray;
 use leetcode::Post::Post;
 fn main() {
-    println!("Hello, world!");
-    let res = Solution::find_shortest_sub_array(vec![1,2,2,3,1]);
-    println!("{:?}", res);
+   let res = NumArray::new(vec![1,2,3,4]);
+    println!("{:?}", res.sum_range(1, 3));
 }
