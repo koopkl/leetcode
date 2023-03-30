@@ -23,19 +23,17 @@ pub struct Solution {
 
 impl Solution {
     pub fn reverse_list(head: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
-        fn reverse(
-            head: Option<Box<ListNode>>,
-            prev: Option<Box<ListNode>>,
-        ) -> Option<Box<ListNode>> {
-            if let Some(mut node) = head {
-                let tail = node.next.take();
-                node.next = prev;
+        let mut pre = None;
+        let mut cur = head;
+        while let Some(mut node) = cur {
+            println!("before: {:?}", node);
+            cur = node.next.take();
+            println!("after take: {:?}", node);
+            node.next = pre;
+            println!("after: {:?}", node);
+            pre = Some(node);
 
-                return reverse(tail, Some(node));
-            }
-            prev
         }
-
-        reverse(head, None)
+        pre
     }
 }
