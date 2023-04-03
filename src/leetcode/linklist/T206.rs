@@ -32,7 +32,6 @@ impl Solution {
             node.next = pre;
             println!("after: {:?}", node);
             pre = Some(node);
-
         }
         pre
     }
