@@ -7,5 +7,6 @@ fn main() {
     let res = Solution::bulb_switch(3);
     println!("{:?}", res);
     println!("{:?}", res);
+    println!("{:?}", res);
 
 }
