@@ -8,5 +8,6 @@ fn main() {
     println!("{:?}", res);
     println!("{:?}", res);
     println!("{:?}", res);
+    println!("{:?}", res);
 
 }
