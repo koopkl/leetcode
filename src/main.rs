@@ -1,11 +1,11 @@
 use std::cell::RefCell;
 use std::rc::Rc;
-use leetcode::leetcode::nums::T136::{Solution};
+use leetcode::leetcode::stack::t150::{Solution};
 use leetcode::Post::Post;
 
 fn main() {
 
-    let res = Solution::single_number(vec![2]);
+    let res = Solution::eval_rpn(vec!["2".to_string(),"1".to_string(),"+".to_string(),"3".to_string(),"*".to_string()]);
     println!("{:?}", res);
 
 }
