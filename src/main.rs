@@ -1,11 +1,11 @@
 use std::cell::RefCell;
 use std::rc::Rc;
-use leetcode::leetcode::stack::t316::{Solution};
+use leetcode::leetcode::greedy::t121::{Solution};
 use leetcode::Post::Post;
 
 fn main() {
 
-    let res = Solution::remove_duplicate_letters("babc".to_string());
+    let res = Solution::max_profit(vec![7,1,2,3,4,5]);
     println!("{:?}", res);
 
 }
