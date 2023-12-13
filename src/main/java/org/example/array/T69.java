@@ -2,7 +2,6 @@ package org.example.array;
 
 /**
  * x的平方根
- * todo 二分
  * @link <a href="https://leetcode.cn/problems/sqrtx/"> </a>
  */
 public class T69 {
@@ -22,5 +21,21 @@ public class T69 {
             }
         }
         return -1;
+    }
+
+    public int binarySqrt(int x) {
+        int left = 0;
+        int right = x;
+        int ans = -1;
+        while (left <= right) {
+            int mid = left + (right - left) / 2;
+            if ((long) mid * mid > x) {
+                right = mid - 1;
+            } else {
+                ans = mid;
+                left = mid + 1;
+            }
+        }
+        return ans;
     }
 }
