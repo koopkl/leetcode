@@ -31,6 +31,6 @@ public class T124 {
             max = res;
         }
         // 作为子节点，这个值才可以被递归
-        return res + Math.max(left, right);
+        return root.val + Math.max(left, right);
     }
 }
