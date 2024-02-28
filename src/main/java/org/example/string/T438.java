@@ -3,10 +3,14 @@ package org.example.string;
 import java.util.*;
 
 /**
+ * 找到字符串中所有字母异位词
  * 数组应该更快，但是我喜欢Map，🤭
+ * map的初始化太麻烦
+ * 这道题相当经典的滑动窗口，通过额外的计数器来对比map，查看是否匹配
+ * 滑动窗口题目两个要点：窗口何时移动？窗口移动后会产生何种影响？
  * @Datetime: 16/1/2024 下午8:39
  * @Author: koopkl
- * @Link: <a href="https://leetcode.cn/problems/find-all-anagrams-in-a-string"></a>
+ * @Link: <a href="https://leetcode.cn/problems/find-all-anagrams-in-a-string">找到字符串中所有字母异位词</a>
  */
 public class T438 {
     public List<Integer> findAnagrams(String s, String p) {
