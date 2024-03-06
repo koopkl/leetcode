@@ -10,14 +10,18 @@ package org.example.array;
  */
 public class T80 {
     public int removeDuplicates(int[] nums) {
-        int index = 0;
-        for (int i = 1; i < nums.length; i++) {
-            if (nums[i] != nums[index]) {
-                nums[++index] = nums[i];
-            } else if ((index > 0 && nums[index - 1] != nums[i]) || index == 0) {
-                nums[++index] = nums[i];
+        int index = 2;
+        for (int i = 2; i < nums.length; i++) {
+            if (nums[i] != nums[i - 1]) {
+                nums[index++] = nums[i];
+            } else if (nums[i] != nums[index - 2]) {
+                nums[index++] = nums[i];
             }
         }
-        return index + 1;
+        return index;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(new T80().removeDuplicates(new int[]{1,1,1,2,2,3}));
     }
 }

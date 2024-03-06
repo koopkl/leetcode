@@ -11,13 +11,13 @@ import java.util.Arrays;
  */
 public class T26 {
     public int removeDuplicates(int[] nums) {
-        int index = 0;
+        int index = 1;
         for (int i = 1; i < nums.length; i++) {
-            if (nums[i] != nums[index]) {
-                nums[++index] = nums[i];
+            if (nums[i] != nums[i - 1]) {
+                nums[index++] = nums[i];
             }
         }
-        return index + 1;
+        return index;
     }
 
     public static void main(String[] args) {
