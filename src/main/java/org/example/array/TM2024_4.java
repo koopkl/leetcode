@@ -4,23 +4,23 @@ import java.util.*;
 
 public class TM2024_4 {
     public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);
-        int n = in.nextInt();
-        int k = in.nextInt();
-        System.out.println(n);
-        System.out.println(k);
-        int[] nums = new int[n];
-        for (int i = 0; i < n; i++) {
-            nums[i] = in.nextInt();
-        }
-
+//        Scanner in = new Scanner(System.in);
+//        int n = in.nextInt();
+//        int k = in.nextInt();
+//        System.out.println(n);
+//        System.out.println(k);
+//        int[] nums = new int[n];
+//        for (int i = 0; i < n; i++) {
+//            nums[i] = in.nextInt();
+//        }
+        System.out.println(new TM2024_4().getNumber(new int[]{2, 5, 3, 4, 20}, 2, 5));
     }
 
     public int getNumber(int[] nums, int k, int len) {
         Map<Integer, Integer> mapTwo = new HashMap<>();
         Map<Integer, Integer> mapFive = new HashMap<>();
         Map<Integer, Integer> zeroMap = new HashMap<>();
-        Map<Integer, List<Integer>> zeroToSize = new HashMap<>();
+        zeroMap.put(0, 0);
         int mTwo = 0;
         int mFive = 0;
         for (int i = 0; i < len; i++) {
@@ -32,25 +32,23 @@ public class TM2024_4 {
             mFive += tempFive;
             int count = Math.min(mTwo, mFive);
             zeroMap.put(i + 1, count);
-            if (zeroToSize.containsKey(count)) {
-                zeroToSize.get(count).add(i + 1);
-            } else {
-                List<Integer> tempList = new ArrayList<>();
-                tempList.add(i + 1);
-                zeroToSize.put(count, tempList);
-            }
         }
         int m = Math.min(mTwo, mFive);
         int target = m - k;
         int res = 0;
-        for (int i = 0; i < len; i++) {
-            if (zeroMap.get(i + 1) > target) {
-                int targetBefore = target - zeroMap.get(i + 1);
-                if (zeroToSize.containsKey(targetBefore)) {
-                    int tempRes = (i - zeroToSize.get(targetBefore).get(0));
-                    res += (tempRes + 1) * tempRes / 2;
-                }
-            }
+        int i = 0;
+        int j = 0;
+        while (i < len && j < len) {
+           if (zeroMap.get(j + 1) - zeroMap.get(i) > target) {
+               i++;
+               j++;
+               continue;
+           }
+           while (j < len && zeroMap.get(j + 1) - zeroMap.get(i) <= target) {
+               j++;
+           }
+           res += (j - i) * (j - i + 1) / 2;
+           i = j;
         }
         return res;
     }
@@ -67,4 +65,5 @@ public class TM2024_4 {
         }
         return res;
     }
+
 }
