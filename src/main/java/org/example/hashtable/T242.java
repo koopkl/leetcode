@@ -5,21 +5,22 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 /**
- *
- * @Datetime: 3/1/2024 下午3:24
+ * 有效的字母异位词
+ * 就是喜欢用流式处理，真的帅
+ * @Datetime: 2024/3/15 14:14
  * @Author: koopkl
- * @Link: <a href=""></a>
+ * @Link: <a href="https://leetcode.cn/problems/valid-anagram/description/">有效的字母异位词</a>
  */
 public class T242 {
     public boolean isAnagram(String s, String t) {
-        Map<String, Long> collectS = s.codePoints().mapToObj(Character::toString)
-                .collect(Collectors.groupingBy(c -> c, Collectors.counting()));
-        Map<String, Long> collectT = t.codePoints().mapToObj(Character::toString)
-                .collect(Collectors.groupingBy(c -> c, Collectors.counting()));
+        Map<Integer, Long> collectS = s.codePoints().boxed().collect(Collectors.groupingBy(c -> c, Collectors.counting()));
+        Map<Integer, Long> collectT = s.codePoints().boxed().collect(Collectors.groupingBy(c -> c, Collectors.counting()));
         if (collectS.size() != collectT.size()) {
             return false;
         }
-        for (String key: collectS.keySet()) {
+        System.out.println(collectS);
+        System.out.println(collectT);
+        for (Integer key: collectS.keySet()) {
             if (!collectT.containsKey(key)) {
                 return false;
             }

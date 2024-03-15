@@ -48,7 +48,6 @@ public class T49 {
     }
 
     public List<List<String>> groupAnagrams1(String[] strs) {
-        List<List<String>> res = new ArrayList<>();
         HashMap<String, List<String>> map = new HashMap<>();
         for (String str : strs) {
             char[] charArray = str.toCharArray();
@@ -57,6 +56,6 @@ public class T49 {
             map.putIfAbsent(temp, new ArrayList<>());
             map.get(temp).add(str);
         }
-        return map.values().stream().toList();
+        return new ArrayList<>(map.values());
     }
 }
