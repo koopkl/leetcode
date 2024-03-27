@@ -1,11 +1,11 @@
 package lsp.learn;
 
 public class MyInstance {
-    private MyInstance() { }
-    private static class InstanceHolder{
+    private static class InstanceHolder {
         public static MyInstance instance = new MyInstance();
     }
-    public static MyInstance getInstance(){
+
+    public static MyInstance getMyInstance() {
         return InstanceHolder.instance;
     }
 

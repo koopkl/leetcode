@@ -1,10 +1,8 @@
 package lsp.learn;
 
 public class SingleInstance {
-    private volatile static SingleInstance instance = null;
-    private SingleInstance(){}
-
-    public static SingleInstance getInstance() {
+    private volatile static SingleInstance instance;
+    public static SingleInstance getSingle() {
         if (instance == null) {
             synchronized (SingleInstance.class) {
                 if (instance == null) {
